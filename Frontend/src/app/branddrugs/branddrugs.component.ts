@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TitleComponent } from "../title/title.component";
 
 @Component({
   selector: 'app-branddrugs',
-  imports: [CommonModule],
+  imports: [CommonModule, TitleComponent],
   standalone: true,
   templateUrl: './branddrugs.component.html',
   styleUrl: './branddrugs.component.css'
 })
 export class BranddrugsComponent {
 
-  title = 'Brand Drugs'
+  public title = 'Brand Drugs'
 
   public branddrugsList = [
     { nome: 'Novalgina' },
