@@ -1,7 +1,26 @@
 <app-title [title]="title"></app-title>
 
-<ul>
-    <li *ngFor="let genericdrug of genericdrugsList">
-        {{genericdrug.nome}}
-    </li>
-</ul>
+<table class="table">
+  <thead class="table-light">
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Ingrediente Ativo</th>
+      <th>Laboratório</th>
+      <th>Data de Validade</th>
+      <th>Quantidade</th>
+      <th>Preço</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let genericDrug of genericdrugsList">
+      <td>{{genericDrug.id}}</td>
+      <td>{{genericDrug.nome}}</td>
+      <td>{{genericDrug.Active_ingredient}}</td>
+      <td>{{genericDrug.Laboratory}}</td>
+      <td>{{genericDrug.Expiration_Date}}</td>
+      <td>{{genericDrug.Quantity}}</td>
+      <td>{{genericDrug.Price}}</td>
+    </tr>
+  </tbody>
+</table>

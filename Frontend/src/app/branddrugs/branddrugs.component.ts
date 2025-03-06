@@ -14,11 +14,11 @@ export class BranddrugsComponent {
   public title = 'Brand Drugs'
 
   public branddrugsList = [
-    { nome: 'Novalgina' },
-    { nome:'Rivotril' },
-    { nome:'Dorflex' },
-    { nome:'Ritalina' },
-    { nome:'Sivastatina' },
-    { nome:'Zolpidem' },
+    { id: 1, nome: 'Novalgina', Active_ingredient: 'null', Laboratory: 'null', Expiration_Date: '12/12/2025', Quantity: 1, Price: '12,90'},
+    { id: 2, nome:'Rivotril', Active_ingredient: 'null', Laboratory: 'null', Expiration_Date: '12/12/2025', Quantity: 1, Price: '12,90' },
+    { id: 3, nome:'Dorflex', Active_ingredient: 'null', Laboratory: 'null', Expiration_Date: '12/12/2025', Quantity: 1, Price: '12,90' },
+    { id: 4, nome:'Ritalina', Active_ingredient: 'null', Laboratory: 'null', Expiration_Date: '12/12/2025', Quantity: 1, Price: '12,90' },
+    { id: 5, nome:'Sivastatina', Active_ingredient: 'null', Laboratory: 'null', Expiration_Date: '12/12/2025', Quantity: 1, Price: '12,90' },
+    { id: 6, nome:'Zolpidem', Active_ingredient: 'null', Laboratory: 'null', Expiration_Date: '12/12/2025', Quantity: 1, Price: '12,90' },
   ];
 }
