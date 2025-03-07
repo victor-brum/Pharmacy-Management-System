@@ -4,18 +4,18 @@
   <thead class="table-light">
     <tr>
       <th>ID</th>
-      <th>Nome</th>
-      <th>Ingrediente Ativo</th>
-      <th>Laboratório</th>
-      <th>Data de Validade</th>
-      <th>Quantidade</th>
-      <th>Preço</th>
+      <th>Name</th>
+      <th>Active Ingredient</th>
+      <th>Laboratory</th>
+      <th>Expiration Date</th>
+      <th>Quantity</th>
+      <th>Price</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let genericDrug of genericdrugsList">
       <td>{{genericDrug.id}}</td>
-      <td>{{genericDrug.nome}}</td>
+      <td>{{genericDrug.name}}</td>
       <td>{{genericDrug.Active_ingredient}}</td>
       <td>{{genericDrug.Laboratory}}</td>
       <td>{{genericDrug.Expiration_Date}}</td>

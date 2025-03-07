@@ -8,5 +8,5 @@ import { TitleComponent } from "../title/title.component";
   styleUrl: './perfil.component.css'
 })
 export class PerfilComponent {
-  public title = "Perfil"
+  public title = "Profile"
 }
