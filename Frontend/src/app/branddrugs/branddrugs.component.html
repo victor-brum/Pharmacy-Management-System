@@ -1,26 +1,33 @@
-<app-title [title]="title"></app-title>
+<div *ngIf="selectedBranddrug">
+  <app-title [title]="'Brand Drug: ' + selectedBranddrug"></app-title>
+  <button class="btn btn-default" (click)="back()">Back</button>
+</div>
+<div *ngIf="!selectedBranddrug">
+  <app-title [title]="title"></app-title>
+  <table class="table table-hover">
+    <thead class="table-light">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Active Ingredient</th>
+        <th>Laboratory</th>
+        <th>Expiration Date</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let branddrug of branddrugsList" style="cursor: pointer;" (click)="selectBranddrug(branddrug)">
+        <td>{{branddrug.id}}</td>
+        <td>{{branddrug.name}}</td>
+        <td>{{branddrug.Active_ingredient}}</td>
+        <td>{{branddrug.Laboratory}}</td>
+        <td>{{branddrug.Expiration_Date}}</td>
+        <td>{{branddrug.Quantity}}</td>
+        <td>{{branddrug.Price}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-<table class="table">
-  <thead class="table-light">
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Active Ingredient</th>
-      <th>Laboratory</th>
-      <th>Expiration Date</th>
-      <th>Quantity</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let branddrug of branddrugsList">
-      <td>{{branddrug.id}}</td>
-      <td>{{branddrug.name}}</td>
-      <td>{{branddrug.Active_ingredient}}</td>
-      <td>{{branddrug.Laboratory}}</td>
-      <td>{{branddrug.Expiration_Date}}</td>
-      <td>{{branddrug.Quantity}}</td>
-      <td>{{branddrug.Price}}</td>
-    </tr>
-  </tbody>
-</table>
+
