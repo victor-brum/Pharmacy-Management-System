@@ -30,4 +30,16 @@ export class BranddrugsComponent {
   selectBranddrug(branddrug: any) {
     this.selectedBranddrug = branddrug.name;
   }
+
+   formatPrice(event: any) {
+    let value = event.target.value;
+
+    value = value.replace(/[^\d]/g, '');
+
+    if (value.length > 2) {
+      value = value.substring(0, value.length - 2) + ',' + value.substring(value.length - 2);
+    }
+
+    event.target.value = value;
+  }
 }
