@@ -1,7 +1,7 @@
 <div *ngIf="selectedBranddrug">
   <div class="row">
     <div class="col">
-      <app-title [title]="'Brand Drug: ' + selectedBranddrug"></app-title>
+      <app-title [title]="selectedBranddrug + ' (Brand Drug)'"></app-title>
     </div>
     <div class="col text-end mt-1">
       <button class="btn btn-warning" (click)="back()">Brand Drugs List</button>

@@ -1,17 +1,13 @@
 <div *ngIf="selectedGenericdrug">
   <div class="row">
     <div class="col">
-      <app-title [title]="'Generic Drug: ' + selectedGenericdrug"></app-title>
+      <app-title [title]="selectedGenericdrug + ' (Generic Drug)'"></app-title>
     </div>
     <div class="col text-end mt-1">
       <button class="btn btn-warning" (click)="back()">Generic Drugs List</button>
     </div>
   </div>
   <form>
-    <div class="form-group mb-3">
-      <label class="mb-2" for="formGroupExampleInput">Name</label>
-      <input type="text" class="form-control">
-    </div>
     <div class="form-group mb-3">
       <label class="mb-2" for="formGroupExampleInput2">Active Ingredient</label>
       <input type="text" class="form-control">
@@ -41,7 +37,6 @@
     <thead class="table-light">
       <tr>
         <th>ID</th>
-        <th>Name</th>
         <th>Active Ingredient</th>
         <th>Laboratory</th>
         <th>Expiration Date</th>
@@ -52,7 +47,6 @@
     <tbody>
       <tr *ngFor="let genericdrug of genericdrugsList" style="cursor: pointer;" (click)="selectGenericdrug(genericdrug)">
         <td>{{genericdrug.id}}</td>
-        <td>{{genericdrug.name}}</td>
         <td>{{genericdrug.Active_ingredient}}</td>
         <td>{{genericdrug.Laboratory}}</td>
         <td>{{genericdrug.Expiration_Date}}</td>
