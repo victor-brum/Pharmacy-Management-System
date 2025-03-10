@@ -1,63 +1,67 @@
-<div *ngIf="selectedGenericdrug">
-  <div class="row">
-    <div class="col">
-      <app-title [title]="(selectedGenericdrug.activeIngredient ?? '') + ' (Generic Drug)'"></app-title>
-    </div>
-    <div class="col text-end mt-1">
-      <button class="btn btn-warning" (click)="back()">Generic Drugs List</button>
-    </div>
-  </div>
-  <form>
-    <div class="form-group mb-3">
-      <label class="mb-2" for="formGroupExampleInput2">Active Ingredient</label>
-      <input type="text" value="{{selectedGenericdrug.activeIngredient}}" class="form-control">
-    </div>
-    <div class="form-group mb-3">
-      <label class="mb-2" for="formGroupExampleInput2">Laboratory</label>
-      <input type="text" value="{{selectedGenericdrug.laboratory}}" class="form-control">
-    </div>
-    <div class="form-group mb-3">
-      <label class="mb-2" for="formGroupExampleInput2">Expiration Date</label>
-      <input type="date" value="{{selectedGenericdrug.expirationDate}}" class="form-control">
-    </div>
-    <div class="form-group mb-3">
-      <label class="mb-2" for="formGroupExampleInput2">Quantity</label>
-      <input type="number" value="{{selectedGenericdrug.quantity}}" class="form-control">
-    </div>
-    <div class="form-group mb-3">
-      <label class="mb-2" for="formGroupExampleInput2">Price</label>
-      <div class="input-group">
-        <span class="input-group-text">$</span>
-        <input type="text" value="{{selectedGenericdrug.price}}" class="form-control" (input)="formatPrice($event)">
+<div class="row">
+  <div class="col-sm-6" *ngIf="selectedGenericdrug">
+    <div class="row">
+      <div class="col">
+        <app-title [title]="selectedGenericdrug.activeIngredient ?? ''"></app-title>
       </div>
     </div>
-  </form>
-</div>
+    <form>
+      <div class="form-group mb-3">
+        <label class="mb-2" for="formGroupExampleInput2">Active Ingredient</label>
+        <input type="text" value="{{selectedGenericdrug.activeIngredient}}" class="form-control">
+      </div>
+      <div class="form-group mb-3">
+        <label class="mb-2" for="formGroupExampleInput2">Laboratory</label>
+        <input type="text" value="{{selectedGenericdrug.laboratory}}" class="form-control">
+      </div>
+      <div class="form-group mb-3">
+        <label class="mb-2" for="formGroupExampleInput2">Expiration Date</label>
+        <input type="date" value="{{selectedGenericdrug.expirationDate}}" class="form-control">
+      </div>
+      <div class="form-group mb-3">
+        <label class="mb-2" for="formGroupExampleInput2">Quantity</label>
+        <input type="number" value="{{selectedGenericdrug.quantity}}" class="form-control">
+      </div>
+      <div class="form-group mb-3">
+        <label class="mb-2" for="formGroupExampleInput2">Price</label>
+        <div class="input-group">
+          <span class="input-group-text">$</span>
+          <input type="text" value="{{selectedGenericdrug.price}}" class="form-control" (input)="formatPrice($event)">
+        </div>
+      </div>
+      <div class="form-group">
+        <hr>
+        <button class="btn btn-outline-success me-2">Save</button>
+        <button class="btn btn-outline-danger" (click)="back()">Exit</button> 
+      </div>
+    </form>
+  </div>
 
-<div *ngIf="!selectedGenericdrug">
-  <app-title [title]="title"></app-title>
-  <table class="table table-hover">
-    <thead class="table-light">
-      <tr>
-        <th>ID</th>
-        <th>Active Ingredient</th>
-        <th>Laboratory</th>
-        <th>Expiration Date</th>
-        <th>Quantity</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let genericdrug of genericdrugsList" style="cursor: pointer;" (click)="selectGenericdrug(genericdrug)">
-        <td>{{genericdrug.id}}</td>
-        <td>{{genericdrug.activeIngredient}}</td>
-        <td>{{genericdrug.laboratory}}</td>
-        <td>{{genericdrug.expirationDate}}</td>
-        <td>{{genericdrug.quantity}}</td>
-        <td>{{genericdrug.price}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div [ngClass]="{'col-sm-6' : selectedGenericdrug, 'col-sm-12' : !selectedGenericdrug}">
+    <app-title [title]="title"></app-title>
+    <table class="table table-hover">
+      <thead class="table-light">
+        <tr>
+          <th>ID</th>
+          <th>Active Ingredient</th>
+          <th>Laboratory</th>
+          <th>Expiration Date</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let genericdrug of genericdrugsList" style="cursor: pointer;" (click)="selectGenericdrug(genericdrug)">
+          <td>{{genericdrug.id}}</td>
+          <td>{{genericdrug.activeIngredient}}</td>
+          <td>{{genericdrug.laboratory}}</td>
+          <td>{{genericdrug.expirationDate}}</td>
+          <td>{{genericdrug.quantity}}</td>
+          <td>{{genericdrug.price}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 

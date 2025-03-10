@@ -1,69 +1,73 @@
-<div *ngIf="selectedBranddrug">
-  <div class="row">
-    <div class="col">
-      <app-title [title]="(selectedBranddrug.name ?? '') + ' (Brand Drug)'"></app-title>
-    </div>
-    <div class="col text-end mt-1">
-      <button class="btn btn-warning" (click)="back()">Brand Drugs List</button>
-    </div>
-  </div>
-  <form>
-    <div class="form-group mb-3">
-      <label class="mb-2" for="formGroupExampleInput">Name</label>
-      <input type="text" value="{{selectedBranddrug.name}}" class="form-control">
-    </div>
-    <div class="form-group mb-3">
-      <label class="mb-2" for="formGroupExampleInput2">Active Ingredient</label>
-      <input type="text" value="{{selectedBranddrug.activeIngredient}}" class="form-control">
-    </div>
-    <div class="form-group mb-3">
-      <label class="mb-2" for="formGroupExampleInput2">Laboratory</label>
-      <input type="text" value="{{selectedBranddrug.laboratory}}" class="form-control">
-    </div>
-    <div class="form-group mb-3">
-      <label class="mb-2" for="formGroupExampleInput2">Expiration Date</label>
-      <input type="date" value="{{selectedBranddrug.expirationDate}}" class="form-control">
-    </div>
-    <div class="form-group mb-3">
-      <label class="mb-2" for="formGroupExampleInput2">Quantity</label>
-      <input type="number" value="{{selectedBranddrug.quantity}}" class="form-control">
-    </div>
-    <div class="form-group mb-3">
-      <label class="mb-2" for="formGroupExampleInput2">Price</label>
-      <div class="input-group">
-        <span class="input-group-text">$</span>
-        <input type="text" value="{{selectedBranddrug.price}}" class="form-control" (input)="formatPrice($event)">
+<div class="row">
+  <div class="col-sm-6" *ngIf="selectedBranddrug">
+    <div class="row">
+      <div class="col">
+        <app-title [title]="selectedBranddrug.name ?? ''"></app-title>
       </div>
     </div>
-  </form>
-</div>
+    <form>
+      <div class="form-group mb-3">
+        <label class="mb-2" for="formGroupExampleInput">Name</label>
+        <input type="text" value="{{selectedBranddrug.name}}" class="form-control">
+      </div>
+      <div class="form-group mb-3">
+        <label class="mb-2" for="formGroupExampleInput2">Active Ingredient</label>
+        <input type="text" value="{{selectedBranddrug.activeIngredient}}" class="form-control">
+      </div>
+      <div class="form-group mb-3">
+        <label class="mb-2" for="formGroupExampleInput2">Laboratory</label>
+        <input type="text" value="{{selectedBranddrug.laboratory}}" class="form-control">
+      </div>
+      <div class="form-group mb-3">
+        <label class="mb-2" for="formGroupExampleInput2">Expiration Date</label>
+        <input type="date" value="{{selectedBranddrug.expirationDate}}" class="form-control">
+      </div>
+      <div class="form-group mb-3">
+        <label class="mb-2" for="formGroupExampleInput2">Quantity</label>
+        <input type="number" value="{{selectedBranddrug.quantity}}" class="form-control">
+      </div>
+      <div class="form-group mb-3">
+        <label class="mb-2" for="formGroupExampleInput2">Price</label>
+        <div class="input-group">
+          <span class="input-group-text">$</span>
+          <input type="text" value="{{selectedBranddrug.price}}" class="form-control" (input)="formatPrice($event)">
+        </div>
+      </div>
+      <div class="form-group">
+        <hr>
+        <button class="btn btn-outline-success me-2">Save</button>
+        <button class="btn btn-outline-danger" (click)="back()">Exit</button> 
+      </div>
+    </form>
+  </div>
 
-<div *ngIf="!selectedBranddrug">
-  <app-title [title]="title"></app-title>
-  <table class="table table-hover">
-    <thead class="table-light">
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Active Ingredient</th>
-        <th>Laboratory</th>
-        <th>Expiration Date</th>
-        <th>Quantity</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let branddrug of branddrugsList" style="cursor: pointer;" (click)="selectBranddrug(branddrug)">
-        <td>{{branddrug.id}}</td>
-        <td>{{branddrug.name}}</td>
-        <td>{{branddrug.activeIngredient}}</td>
-        <td>{{branddrug.laboratory}}</td>
-        <td>{{branddrug.expirationDate}}</td>
-        <td>{{branddrug.quantity}}</td>
-        <td>{{branddrug.price}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div [ngClass]="{'col-sm-6' : selectedBranddrug, 'col-sm-12' : !selectedBranddrug}">
+    <app-title [title]="title"></app-title>
+    <table class="table table-hover">
+      <thead class="table-light">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Active Ingredient</th>
+          <th>Laboratory</th>
+          <th>Expiration Date</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let branddrug of branddrugsList" style="cursor: pointer;" (click)="selectBranddrug(branddrug)">
+          <td>{{branddrug.id}}</td>
+          <td>{{branddrug.name}}</td>
+          <td>{{branddrug.activeIngredient}}</td>
+          <td>{{branddrug.laboratory}}</td>
+          <td>{{branddrug.expirationDate}}</td>
+          <td>{{branddrug.quantity}}</td>
+          <td>{{branddrug.price}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 

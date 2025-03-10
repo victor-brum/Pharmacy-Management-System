@@ -14,6 +14,7 @@ export class BranddrugsComponent {
 
   public title = 'Brand Drugs';
   public selectedBranddrug?: BrandDrug;
+  public simpleText?: string;
 
   public branddrugsList = [
     { id: 1, name: 'Tylenol', activeIngredient: 'Acetaminofeno', laboratory: 'McNeil', expirationDate: '03/29/2027', quantity: 1, price: '$5,90'},
