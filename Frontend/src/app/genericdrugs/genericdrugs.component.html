@@ -1,7 +1,7 @@
 <div *ngIf="selectedGenericdrug">
   <div class="row">
     <div class="col">
-      <app-title [title]="selectedGenericdrug + ' (Generic Drug)'"></app-title>
+      <app-title [title]="(selectedGenericdrug.activeIngredient ?? '') + ' (Generic Drug)'"></app-title>
     </div>
     <div class="col text-end mt-1">
       <button class="btn btn-warning" (click)="back()">Generic Drugs List</button>
@@ -10,25 +10,25 @@
   <form>
     <div class="form-group mb-3">
       <label class="mb-2" for="formGroupExampleInput2">Active Ingredient</label>
-      <input type="text" class="form-control">
+      <input type="text" value="{{selectedGenericdrug.activeIngredient}}" class="form-control">
     </div>
     <div class="form-group mb-3">
       <label class="mb-2" for="formGroupExampleInput2">Laboratory</label>
-      <input type="text" class="form-control">
+      <input type="text" value="{{selectedGenericdrug.laboratory}}" class="form-control">
     </div>
     <div class="form-group mb-3">
       <label class="mb-2" for="formGroupExampleInput2">Expiration Date</label>
-      <input type="date" class="form-control">
+      <input type="date" value="{{selectedGenericdrug.expirationDate}}" class="form-control">
     </div>
     <div class="form-group mb-3">
       <label class="mb-2" for="formGroupExampleInput2">Quantity</label>
-      <input type="number" class="form-control">
+      <input type="number" value="{{selectedGenericdrug.quantity}}" class="form-control">
     </div>
     <div class="form-group mb-3">
       <label class="mb-2" for="formGroupExampleInput2">Price</label>
       <div class="input-group">
         <span class="input-group-text">$</span>
-        <input type="text" class="form-control" (input)="formatPrice($event)">
+        <input type="text" value="{{selectedGenericdrug.price}}" class="form-control" (input)="formatPrice($event)">
       </div>
     </div>
   </form>
@@ -50,11 +50,11 @@
     <tbody>
       <tr *ngFor="let genericdrug of genericdrugsList" style="cursor: pointer;" (click)="selectGenericdrug(genericdrug)">
         <td>{{genericdrug.id}}</td>
-        <td>{{genericdrug.Active_ingredient}}</td>
-        <td>{{genericdrug.Laboratory}}</td>
-        <td>{{genericdrug.Expiration_Date}}</td>
-        <td>{{genericdrug.Quantity}}</td>
-        <td>{{genericdrug.Price}}</td>
+        <td>{{genericdrug.activeIngredient}}</td>
+        <td>{{genericdrug.laboratory}}</td>
+        <td>{{genericdrug.expirationDate}}</td>
+        <td>{{genericdrug.quantity}}</td>
+        <td>{{genericdrug.price}}</td>
       </tr>
     </tbody>
   </table>

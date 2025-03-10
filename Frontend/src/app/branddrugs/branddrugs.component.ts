@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TitleComponent } from "../title/title.component";
+import { BrandDrug } from '../models/BrandDrug';
 
 @Component({
   selector: 'app-branddrugs',
@@ -12,23 +13,23 @@ import { TitleComponent } from "../title/title.component";
 export class BranddrugsComponent {
 
   public title = 'Brand Drugs';
-  public selectedBranddrug?: string;
+  public selectedBranddrug?: BrandDrug;
 
   public branddrugsList = [
-    { id: 1, name: 'Novalgina', Active_ingredient: 'null', Laboratory: 'null', Expiration_Date: '12/12/2025', Quantity: 1, Price: '$12,90'},
-    { id: 2, name:'Rivotril', Active_ingredient: 'null', Laboratory: 'null', Expiration_Date: '12/12/2025', Quantity: 1, Price: '$12,90' },
-    { id: 3, name:'Dorflex', Active_ingredient: 'null', Laboratory: 'null', Expiration_Date: '12/12/2025', Quantity: 1, Price: '$12,90' },
-    { id: 4, name:'Ritalina', Active_ingredient: 'null', Laboratory: 'null', Expiration_Date: '12/12/2025', Quantity: 1, Price: '$12,90' },
-    { id: 5, name:'Sivastatina', Active_ingredient: 'null', Laboratory: 'null', Expiration_Date: '12/12/2025', Quantity: 1, Price: '$12,90' },
-    { id: 6, name:'Zolpidem', Active_ingredient: 'null', Laboratory: 'null', Expiration_Date: '12/12/2025', Quantity: 1, Price: '$12,90' },
+    { id: 1, name: 'Tylenol', activeIngredient: 'Acetaminofeno', laboratory: 'McNeil', expirationDate: '03/29/2027', quantity: 1, price: '$5,90'},
+    { id: 2, name:'Rivotril', activeIngredient: 'Clonazepam', laboratory: 'Novartis', expirationDate: '05/26/2028', quantity: 1, price: '$18,50' },
+    { id: 3, name:'Miosan', activeIngredient: 'Ciclobenzaprina', laboratory: 'Eurofarma', expirationDate: '02/01/2029', quantity: 1, price: '$12,90' },
+    { id: 4, name:'Ritalina', activeIngredient: 'Metilfenidato', laboratory: 'Novartis', expirationDate: '04/15/2027', quantity: 1, price: '$20,70' },
+    { id: 5, name:'Zocor', activeIngredient: 'Sinvastatina', laboratory: 'Merck', expirationDate: '12/01/2026', quantity: 1, price: '$21,00' },
+    { id: 6, name:'Stilnox', activeIngredient: 'Zolpidem', laboratory: 'Sanofi', expirationDate: '07/15/2028', quantity: 1, price: '$15,00' },
   ];
 
   back() {
-    this.selectedBranddrug = '';
+    this.selectedBranddrug = undefined;
   }
 
-  selectBranddrug(branddrug: any) {
-    this.selectedBranddrug = branddrug.name;
+  selectBranddrug(branddrug: BrandDrug) {
+    this.selectedBranddrug = branddrug;
   }
 
    formatPrice(event: any) {
