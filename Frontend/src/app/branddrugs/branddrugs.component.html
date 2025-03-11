@@ -5,38 +5,38 @@
         <app-title [title]="selectedBranddrug.name ?? ''"></app-title>
       </div>
     </div>
-    <form>
+    <form *ngIf="branddrugForm" [formGroup]="branddrugForm" (ngSubmit)="branddrugSubmit()">
       <div class="form-group mb-3">
         <label class="mb-2" for="formGroupExampleInput">Name</label>
-        <input type="text" value="{{selectedBranddrug.name}}" class="form-control">
+        <input type="text" formControlName="name" class="form-control">
       </div>
       <div class="form-group mb-3">
         <label class="mb-2" for="formGroupExampleInput2">Active Ingredient</label>
-        <input type="text" value="{{selectedBranddrug.activeIngredient}}" class="form-control">
+        <input type="text" formControlName="activeIngredient" class="form-control">
       </div>
       <div class="form-group mb-3">
         <label class="mb-2" for="formGroupExampleInput2">Laboratory</label>
-        <input type="text" value="{{selectedBranddrug.laboratory}}" class="form-control">
+        <input type="text" formControlName="laboratory" class="form-control">
       </div>
       <div class="form-group mb-3">
         <label class="mb-2" for="formGroupExampleInput2">Expiration Date</label>
-        <input type="date" value="{{selectedBranddrug.expirationDate}}" class="form-control">
+        <input type="date" formControlName="expirationDate" class="form-control">
       </div>
       <div class="form-group mb-3">
         <label class="mb-2" for="formGroupExampleInput2">Quantity</label>
-        <input type="number" value="{{selectedBranddrug.quantity}}" class="form-control">
+        <input type="number" formControlName="quantity" class="form-control">
       </div>
       <div class="form-group mb-3">
         <label class="mb-2" for="formGroupExampleInput2">Price</label>
         <div class="input-group">
           <span class="input-group-text">$</span>
-          <input type="text" value="{{selectedBranddrug.price}}" class="form-control" (input)="formatPrice($event)">
+          <input type="text" formControlName="price" class="form-control" (input)="formatPrice($event)">
         </div>
       </div>
       <div class="form-group">
         <hr>
-        <button class="btn btn-outline-success me-2">Save</button>
-        <button class="btn btn-outline-danger" (click)="back()">Exit</button> 
+        <button class="btn btn-success me-2" [disabled]="!branddrugForm.valid">Save</button>
+        <button class="btn btn-danger" (click)="back()">Exit</button> 
       </div>
     </form>
   </div>

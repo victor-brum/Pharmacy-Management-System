@@ -5,34 +5,34 @@
         <app-title [title]="selectedGenericdrug.activeIngredient ?? ''"></app-title>
       </div>
     </div>
-    <form>
+    <form *ngIf="genericdrugForm" [formGroup]="genericdrugForm" (ngSubmit)="genericSubmit()">
       <div class="form-group mb-3">
         <label class="mb-2" for="formGroupExampleInput2">Active Ingredient</label>
-        <input type="text" value="{{selectedGenericdrug.activeIngredient}}" class="form-control">
+        <input type="text" formControlName="activeIngredient" class="form-control">
       </div>
       <div class="form-group mb-3">
         <label class="mb-2" for="formGroupExampleInput2">Laboratory</label>
-        <input type="text" value="{{selectedGenericdrug.laboratory}}" class="form-control">
+        <input type="text" formControlName="laboratory" class="form-control">
       </div>
       <div class="form-group mb-3">
         <label class="mb-2" for="formGroupExampleInput2">Expiration Date</label>
-        <input type="date" value="{{selectedGenericdrug.expirationDate}}" class="form-control">
+        <input type="date" formControlName="expirationDate" class="form-control">
       </div>
       <div class="form-group mb-3">
         <label class="mb-2" for="formGroupExampleInput2">Quantity</label>
-        <input type="number" value="{{selectedGenericdrug.quantity}}" class="form-control">
+        <input type="number" formControlName="quantity" class="form-control">
       </div>
       <div class="form-group mb-3">
         <label class="mb-2" for="formGroupExampleInput2">Price</label>
         <div class="input-group">
           <span class="input-group-text">$</span>
-          <input type="text" value="{{selectedGenericdrug.price}}" class="form-control" (input)="formatPrice($event)">
+          <input type="text" formControlName="price" class="form-control" (input)="formatPrice($event)">
         </div>
       </div>
       <div class="form-group">
         <hr>
-        <button class="btn btn-outline-success me-2">Save</button>
-        <button class="btn btn-outline-danger" (click)="back()">Exit</button> 
+        <button class="btn btn-success me-2" [disabled]="!genericdrugForm.valid">Save</button>
+        <button class="btn btn-danger" (click)="back()">Exit</button> 
       </div>
     </form>
   </div>

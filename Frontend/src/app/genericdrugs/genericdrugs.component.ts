@@ -2,16 +2,18 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TitleComponent } from "../title/title.component";
 import { GenericDrug } from '../models/GenericDrug';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-genericdrugs',
-  imports: [CommonModule, TitleComponent],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, TitleComponent],
   standalone: true,
   templateUrl: './genericdrugs.component.html',
   styleUrl: './genericdrugs.component.css'
 })
 export class GenericdrugsComponent {
 
+  public genericdrugForm?: FormGroup;
   public title = 'Generic Drugs'
   public selectedGenericdrug?: GenericDrug;
 
@@ -24,12 +26,33 @@ export class GenericdrugsComponent {
     { id: 6, activeIngredient: 'Zolpidem', laboratory: 'Stada', expirationDate: '05/01/2026', quantity: 1, price: '$5,25' },
   ];
 
-  back() {
-    this.selectedGenericdrug = undefined;
+  constructor(private fb: FormBuilder)
+    {
+      this.genericdrugForm = this.fb.group({
+        activeIngredient: ['', Validators.required],
+        laboratory: ['', Validators.required],
+        expirationDate: ['', Validators.required],
+        quantity: ['', Validators.required],
+        price: ['', Validators.required]
+      });
+    }
+  
+  get form() {
+    return this.genericdrugForm;
+  }
+
+  genericSubmit()
+  {
+    console.log(this.genericdrugForm?.value)
   }
 
   selectGenericdrug(genericdrug : GenericDrug) {
     this.selectedGenericdrug = genericdrug;
+    this.genericdrugForm?.patchValue(genericdrug);
+  }
+
+  back() {
+    this.selectedGenericdrug = undefined;
   }
 
    formatPrice(event: any) {
