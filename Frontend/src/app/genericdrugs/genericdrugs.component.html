@@ -31,8 +31,8 @@
       </div>
       <div class="form-group">
         <hr>
-        <button class="btn btn-success me-2" [disabled]="!genericdrugForm.valid">Save</button>
-        <button class="btn btn-danger" (click)="back()">Exit</button> 
+        <button class="btn btn-outline-success me-2" [disabled]="!genericdrugForm.valid">Save</button>
+        <button class="btn btn-outline-danger" (click)="back()">Exit</button> 
       </div>
     </form>
   </div>
@@ -42,22 +42,29 @@
     <table class="table table-hover">
       <thead class="table-light">
         <tr>
+          <th>View</th>
           <th>ID</th>
           <th>Active Ingredient</th>
           <th>Laboratory</th>
           <th>Expiration Date</th>
           <th>Quantity</th>
           <th>Price</th>
+          <th>Options</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let genericdrug of genericdrugsList" style="cursor: pointer;" (click)="selectGenericdrug(genericdrug)">
+        <tr *ngFor="let genericdrug of genericdrugsList">
+          <td><button class="btn btn-sm btn-outline-success me-2">Brand</button></td>
           <td>{{genericdrug.id}}</td>
           <td>{{genericdrug.activeIngredient}}</td>
           <td>{{genericdrug.laboratory}}</td>
           <td>{{genericdrug.expirationDate}}</td>
           <td>{{genericdrug.quantity}}</td>
           <td>{{genericdrug.price}}</td>
+          <td class="d-flex justify-content-center gap-2">
+            <button (click)="selectGenericdrug(genericdrug)" class="btn btn-sm btn-outline-success me-2">Edit</button>       
+            <button class="btn btn-sm btn-outline-danger">Disable</button>
+          </td>
         </tr>
       </tbody>
     </table>
