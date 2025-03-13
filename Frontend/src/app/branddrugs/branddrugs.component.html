@@ -35,8 +35,8 @@
       </div>
       <div class="form-group">
         <hr>
-        <button class="btn btn-outline-success me-2" [disabled]="!branddrugForm.valid">Save</button>
-        <button class="btn btn-outline-danger" (click)="back()">Exit</button> 
+        <button class="btn btn-outline-success me-2 fixed-size-btn" [disabled]="!branddrugForm.valid">Save</button>
+        <button class="btn btn-outline-danger fixed-size-btn" (click)="back()">Exit</button> 
       </div>
     </form>
   </div>
@@ -61,7 +61,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let branddrug of branddrugsList">
-            <td><button class="btn btn-sm btn-outline-success me-2">Generics</button></td>
+            <td><button class="btn btn-sm btn-outline-success me-2 fixed-size-btn">Generics</button></td>
             <td>{{branddrug.id}}</td>
             <td>{{branddrug.name}}</td>
             <td>{{branddrug.activeIngredient}}</td>
@@ -70,8 +70,8 @@
             <td>{{branddrug.quantity}}</td>
             <td>{{branddrug.price}}</td>
             <td class="d-flex justify-content-center gap-2">
-              <button (click)="selectBranddrug(branddrug)" class="btn btn-sm btn-outline-success me-2">Edit</button>       
-              <button class="btn btn-sm btn-outline-danger">Disable</button>
+              <button (click)="selectBranddrug(branddrug)" class="btn btn-sm btn-outline-success me-2 fixed-size-btn">Edit</button>       
+              <button class="btn btn-sm btn-outline-danger fixed-size-btn">Disable</button>
             </td>
           </tr>
         </tbody>

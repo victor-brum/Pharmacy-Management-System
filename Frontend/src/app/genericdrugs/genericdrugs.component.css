@@ -2,3 +2,7 @@ th, td {
     text-align: center;
     vertical-align: middle;
   }
+
+  .fixed-size-btn {
+    width: 75px;
+  }
