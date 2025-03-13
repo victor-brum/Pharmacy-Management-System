@@ -1,8 +1,8 @@
 <div class="row d-flex justify-content-center align-items-center">
-  <div class="col-sm-6" *ngIf="selectedGenericdrug">
+  <div class="col-sm-6 mt-4" *ngIf="selectedGenericdrug">
     <div class="row">
-      <div class="col">
-        <app-title [title]="selectedGenericdrug.activeIngredient ?? ''"></app-title>
+      <div class="col mb-4">
+        <app-title [title]="selectedGenericdrug.activeIngredient ?? ''" class="text-center"></app-title>
       </div>
     </div>
     <form *ngIf="genericdrugForm" [formGroup]="genericdrugForm" (ngSubmit)="genericSubmit()">
@@ -37,8 +37,10 @@
     </form>
   </div>
 
-  <div *ngIf="!selectedGenericdrug" class="col-sm-12">
-    <app-title [title]="title"></app-title>
+  <div *ngIf="!selectedGenericdrug" class="col-sm-12 mt-4">
+    <div class="mb-4">
+      <app-title [title]="title" class="text-center"></app-title>
+    </div>
     <table class="table table-hover">
       <thead class="table-light">
         <tr>

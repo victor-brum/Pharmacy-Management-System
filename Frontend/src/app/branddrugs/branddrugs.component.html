@@ -1,8 +1,8 @@
 <div class="row d-flex justify-content-center align-items-center">
-  <div class="col-sm-6" *ngIf="selectedBranddrug">
+  <div class="col-sm-6 mt-4" *ngIf="selectedBranddrug">
     <div class="row">
-      <div class="col">
-        <app-title [title]="selectedBranddrug.name ?? ''"></app-title>
+      <div class="col mb-4">
+        <app-title [title]="selectedBranddrug.name ?? ''" class="text-center"></app-title>
       </div>
     </div>
     <form *ngIf="branddrugForm" [formGroup]="branddrugForm" (ngSubmit)="branddrugSubmit()">
@@ -41,39 +41,41 @@
     </form>
   </div>
 
-  <div *ngIf="!selectedBranddrug" class="col-sm-12">
-    <app-title [title]="title"></app-title>
-    <table class="table table-hover">
-      <thead class="table-light">
-        <tr>
-          <th>View</th>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Active Ingredient</th>
-          <th>Laboratory</th>
-          <th>Expiration Date</th>
-          <th>Quantity</th>
-          <th>Price</th>
-          <th>Options</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let branddrug of branddrugsList">
-          <td><button class="btn btn-sm btn-outline-success me-2">Generics</button></td>
-          <td>{{branddrug.id}}</td>
-          <td>{{branddrug.name}}</td>
-          <td>{{branddrug.activeIngredient}}</td>
-          <td>{{branddrug.laboratory}}</td>
-          <td>{{branddrug.expirationDate}}</td>
-          <td>{{branddrug.quantity}}</td>
-          <td>{{branddrug.price}}</td>
-          <td class="d-flex justify-content-center gap-2">
-            <button (click)="selectBranddrug(branddrug)" class="btn btn-sm btn-outline-success me-2">Edit</button>       
-            <button class="btn btn-sm btn-outline-danger">Disable</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div *ngIf="!selectedBranddrug" class="col-sm-12 mt-4">
+    <div class="mb-4">
+      <app-title [title]="title" class="text-center"></app-title>
+    </div>
+      <table class="table table-hover">
+        <thead class="table-light">
+          <tr>
+            <th>View</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Active Ingredient</th>
+            <th>Laboratory</th>
+            <th>Expiration Date</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let branddrug of branddrugsList">
+            <td><button class="btn btn-sm btn-outline-success me-2">Generics</button></td>
+            <td>{{branddrug.id}}</td>
+            <td>{{branddrug.name}}</td>
+            <td>{{branddrug.activeIngredient}}</td>
+            <td>{{branddrug.laboratory}}</td>
+            <td>{{branddrug.expirationDate}}</td>
+            <td>{{branddrug.quantity}}</td>
+            <td>{{branddrug.price}}</td>
+            <td class="d-flex justify-content-center gap-2">
+              <button (click)="selectBranddrug(branddrug)" class="btn btn-sm btn-outline-success me-2">Edit</button>       
+              <button class="btn btn-sm btn-outline-danger">Disable</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
   </div>
 </div>
 
